@@ -9,7 +9,7 @@
 <body>
     {% include 'nav.njk' %}
     <header class="header">
-        <div class="header-container">
+        <div class="header-container">  
             <h1 class="header-title">
                 Title Blog
                 <p class="header-desc">Hi I like to write blogs and sometimes I write about how much I love them!</p>
@@ -17,5 +17,17 @@
         </div>
         <div class="header-image"></div>
     </header>
+</section>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
